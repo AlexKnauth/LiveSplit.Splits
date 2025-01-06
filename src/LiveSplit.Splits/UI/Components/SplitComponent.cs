@@ -458,6 +458,15 @@ public class SplitComponent : IComponent
                     label.Text = DeltaTimeFormatter.Format(segmentDelta);
                 }
             }
+
+            else if (type is ColumnType.CustomVariable)
+            {
+                // if the split was skipped, wipe the custom variable column entry for the split
+                if (Split.SplitTime[timingMethod] == null)
+                {
+                    label.Text = "";
+                }
+            }
         }
         else
         {
